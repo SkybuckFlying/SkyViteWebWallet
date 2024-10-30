@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { CreateApp } from 'vue';
 import confirmComponent from './confirm.vue';
 
 const Confirm = Vue.extend(confirmComponent);

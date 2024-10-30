@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { createApp, h } from 'vue';
 import { utils } from '@vite/vitejs';
 import { getCurrHDAcc, StatusMap } from '@pc/wallet';
 import { getLedgerInstance } from '@pc/wallet/ledgerHW';
@@ -72,12 +72,9 @@ import statistics from '@utils/statistics';
 import { getTokenSymbolString } from '@utils/tokenParser';
 import AssetSwitch from './assetSwitch.vue';
 import { hwVerifyAddressDialog, baseDialog } from '@pc/components/dialog';
-
-
 import headAcc from '@assets/imgs/head_acc.png';
 import headAddr from '@assets/imgs/head_addr.svg';
 import headAsset from '@assets/imgs/head_asset.png';
-
 import theme1headAcc from '@assets/theme1_imgs/head_acc.png';
 import theme1headAddr from '@assets/theme1_imgs/head_addr.png';
 import theme1headAsset from '@assets/theme1_imgs/head_asset.png';

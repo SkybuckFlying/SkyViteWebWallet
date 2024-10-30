@@ -1,5 +1,6 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { CreateApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+
 import routes from './routes';
 
 import i18n from '@pc/i18n';

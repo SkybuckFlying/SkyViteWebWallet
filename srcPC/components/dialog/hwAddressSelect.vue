@@ -50,7 +50,7 @@ block content
 </template>
 
 <script>
-import Vue from 'vue';
+import { CreateApp } from 'vue';
 
 // import { initVB } from '@pc/wallet/vb';
 import { getLedgerInstance, initLedger } from '@pc/wallet/ledgerHW';

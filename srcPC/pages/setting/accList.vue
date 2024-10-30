@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { CreateApp } from 'vue';
 import copy from '@utils/copy';
 import { StatusMap } from '@pc/wallet';
 

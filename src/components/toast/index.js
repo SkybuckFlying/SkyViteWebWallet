@@ -1,38 +1,40 @@
-import Vue from 'vue';
+import { createApp, h, nextTick } from 'vue';
 import toastComponent from './toast.vue';
 
-const Toast = Vue.extend(toastComponent);
-let instance;
+const Toast = {
+    instance: null,
+    toastDuration: 2000,
+    showToast(message, duration = this.toastDuration, type = 'info', position = 'top') {
+        if (!message) return;
+        if (this.instance && this.instance.show) return this.instance;
 
-const toastDuration = 2000;
+        if (!this.instance) {
+            const appEl = document.getElementById('vite-wallet-app');
+            this.instance = createApp({
+                render() {
+                    return h(toastComponent, {
+                        message,
+                        type,
+                        position,
+                    });
+                }
+            }).mount(document.createElement('div'));
+            appEl.appendChild(this.instance.$el);
+        }
 
-export default function (message, duration = toastDuration, type = 'info', position = 'top') {
-    if (!message) {
-        return;
+        type = type || 'info';
+        position = position || 'top';
+        this.instance.type = type;
+        this.instance.message = message;
+        this.instance.position = position;
+
+        nextTick(() => {
+            this.instance.show = true;
+            setTimeout(() => {
+                this.instance.show = false;
+            }, duration);
+        });
     }
+};
 
-    if (instance && instance.show) {
-        return instance;
-    }
-
-    if (!instance) {
-        instance = new Toast({ el: document.createElement('div') });
-        const appEl = document.getElementById('vite-wallet-app');
-        appEl.appendChild(instance.$el);
-    }
-
-    // Info / warning / error
-    type = type || 'info';
-    position = position || 'top';
-
-    instance.type = type;
-    instance.message = message;
-    instance.position = position;
-
-    Vue.nextTick(() => {
-        instance.show = true;
-        setTimeout(() => {
-            instance.show = false;
-        }, duration);
-    });
-}
+export default Toast.showToast;

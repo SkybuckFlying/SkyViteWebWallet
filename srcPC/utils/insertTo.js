@@ -1,4 +1,5 @@
-import Vue from 'vue';
+import { CreateApp } from 'vue';
+
 import store from '@pc/store';
 import i18n from '@pc/i18n';
 

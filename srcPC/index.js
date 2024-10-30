@@ -5,7 +5,7 @@ import '@services/dnsHostIP';
 import '@services/apiServer';
 import './wallet';
 
-import Vue from 'vue';
+import { CreateApp } from 'vue';
 
 import App from '@pc/pages/index.vue';
 import router from '@pc/router/index.js';
@@ -36,7 +36,15 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Switch from 'ant-design-vue/lib/switch';
-import 'ant-design-vue/lib/switch/style/index.css'; // 或者 ant-design-vue/lib/button/style/css 加载 css 文件
+
+// skybuck necessary modification:
+// replace:
+// import 'ant-design-vue/lib/switch/style/index.css'; // 或者 ant-design-vue/lib/button/style/css 加载 css 文件
+// by:
+import 'ant-design-vue/dist/reset.css'; // 或者 ant-design-vue/lib/button/style/css 加载 css 文件
+
+
+
 import "./index.scss";
 // Some init code for desktop app
 import * as desktop from './utils/desktop';

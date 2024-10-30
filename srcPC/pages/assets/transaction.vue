@@ -64,9 +64,8 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { utils, wallet, accountBlock as accountBlockUtils } from '@vite/vitejs';
-
 import { initPwd } from '@pc/components/password/index.js';
 import confirm from '@pc/components/confirm/confirm.vue';
 import viteInput from '@components/viteInput.vue';

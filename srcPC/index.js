@@ -5,7 +5,7 @@ import '@services/dnsHostIP';
 import '@services/apiServer';
 import './wallet';
 
-import { CreateApp } from 'vue';
+import { createApp } from 'vue';
 
 import App from '@pc/pages/index.vue';
 import router from '@pc/router/index.js';

@@ -1,4 +1,4 @@
-import { CreateApp } from 'vue';
+import { createApp } from 'vue';
 import i18n from '@pc/i18n';
 import router from '@pc/router/index.js';
 import quotaCancelComponent from './cancel.vue';

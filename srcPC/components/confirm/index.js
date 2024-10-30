@@ -1,62 +1,67 @@
-import { CreateApp } from 'vue';
-import confirmComponent from './confirm.vue';
-
-const Confirm = Vue.extend(confirmComponent);
+import { createApp, h } from 'vue';
+import confirmComponent from '/srcPC/components/confirm/confirm.vue';
 
 export default function ({
-    size,
-    type = '',
-    showMask = true,
-    title,
-    content = '',
-    singleBtn = false,
-    closeBtn = {
-        show: false,
-        click: () => {}
-    },
-    leftBtn = {
-        text: '',
-        click: () => {}
-    },
-    rightBtn = {
-        text: '',
-        click: () => {}
-    }
+  size,
+  type = '',
+  showMask = true,
+  title,
+  content = '',
+  singleBtn = false,
+  closeBtn = {
+    show: false,
+    click: () => {}
+  },
+  leftBtn = {
+    text: '',
+    click: () => {}
+  },
+  rightBtn = {
+    text: '',
+    click: () => {}
+  }
 }) {
-    let instance = new Confirm({ el: document.createElement('div') });
+  const appEl = document.body;
 
-    const appEl = document.body;
-    const _close = cb => {
-        try {
-            appEl.removeChild(instance.$el);
-        } catch (err) {
-            console.warn(err);
+  // Create and configure the app instance
+  const confirmApp = createApp({
+    render() {
+      return h(confirmComponent, {
+        showMask,
+        type: type || '',
+        size: size || '',
+        title,
+        content,
+        singleBtn,
+        closeBtn: closeBtn.show,
+        close() {
+          _close(closeBtn ? closeBtn.click : null);
+        },
+        leftBtnTxt: leftBtn.text,
+        leftBtnClick() {
+          _close(leftBtn ? leftBtn.click : null);
+        },
+        rightBtnTxt: rightBtn.text,
+        rightBtnClick() {
+          _close(rightBtn ? rightBtn.click : null);
         }
-        instance.$destroy();
-        instance = null;
-        cb && cb();
-    };
+      });
+    }
+  });
 
-    instance.showMask = showMask;
-    instance.type = type || '';
-    instance.size = size || '';
-    instance.title = title;
-    instance.content = content;
-    instance.singleBtn = singleBtn;
-    instance.closeIcon = closeBtn.show;
-    instance.close = () => {
-        _close(closeBtn ? closeBtn.click : null);
-    };
-    instance.leftBtnTxt = leftBtn.text;
-    instance.leftBtnClick = () => {
-        _close(leftBtn ? leftBtn.click : null);
-    };
-    instance.rightBtnTxt = rightBtn.text;
-    instance.rightBtnClick = () => {
-        _close(rightBtn ? rightBtn.click : null);
-    };
+  const instance = confirmApp.mount(document.createElement('div'));
 
-    appEl.appendChild(instance.$el);
+  const _close = cb => {
+    try {
+      appEl.removeChild(instance.$el);
+    } catch (err) {
+      console.warn(err);
+    }
+    confirmApp.unmount(); // Correct Vue 3 method to unmount
+    instance = null; // Reset instance
+    cb && cb();
+  };
 
-    return true;
+  appEl.appendChild(instance.$el);
+  return true;
 }

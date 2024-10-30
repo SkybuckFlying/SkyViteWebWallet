@@ -1,4 +1,4 @@
-import { CreateApp } from 'vue';
+import { createApp } from 'vue';
 import vuex from 'vuex';
 
 import accountStore from './account';

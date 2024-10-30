@@ -1,4 +1,4 @@
-import { CreateApp } from 'vue';
+import { createApp } from 'vue';
 
 import store from '@pc/store';
 import i18n from '@pc/i18n';

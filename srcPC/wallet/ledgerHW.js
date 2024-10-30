@@ -3,7 +3,7 @@ import TransportWebUSB from '@ledgerhq/hw-transport-webusb';
 import LedgerVite from '@vite/ledgerjs-hw-app-vite';
 import Eventemitter from 'eventemitter3';
 
-import { CreateApp } from 'vue';
+import { createApp } from 'vue';
 
 import { accountBlock } from '@vite/vitejs';
 const { utils } = accountBlock;

@@ -44,7 +44,7 @@
         "buffer": "^6.0.3",
         "connect": "^3.6.6",
         "d3-path": "~1.0.7",
-        "dayjs": "~1.8.8",
+        "dayjs": "~1.11.13",
         "echarts": "^5.5.0",
         "eventemitter3": "^4.0.0",
         "globby": "^14.0.1",

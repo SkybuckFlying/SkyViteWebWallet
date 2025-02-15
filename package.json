@@ -47,7 +47,7 @@
         "dayjs": "~1.8.8",
         "echarts": "^5.5.0",
         "eventemitter3": "^4.0.0",
-        "globby": "^14.0.1",
+        "globby": "^14.1.0",
         "identicon.js": "~2.3.3",
         "jsonrpc-lite": "~2.0.2",
         "lodash": "~4.17.19",

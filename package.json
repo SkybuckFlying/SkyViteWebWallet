@@ -34,7 +34,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.6",
         "@ledgerhq/hw-transport-web-ble": "^6.28.4",
         "@ledgerhq/hw-transport-webusb": "^6.28.4",
-        "@vite/bridge": "^1.0.14",
+        "@vite/bridge": "^2.0.0",
         "@vite/connector": "^0.0.2-0",
         "@vite/ledgerjs-hw-app-vite": "^1.0.0",
         "@vite/vitejs": "^2.3.19",

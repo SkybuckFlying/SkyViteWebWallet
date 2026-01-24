@@ -50,7 +50,7 @@
         "globby": "^14.0.1",
         "identicon.js": "~2.3.3",
         "jsonrpc-lite": "~2.0.2",
-        "lodash": "~4.17.19",
+        "lodash": "~4.17.23",
         "lottie-web": "^5.6.6",
         "protobufjs": "~6.8.8",
         "qrcode.es": "~1.0.0",
